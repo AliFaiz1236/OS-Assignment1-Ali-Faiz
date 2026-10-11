@@ -29,11 +29,11 @@
 
 | Field | Your Answer |
 |-------|-------------|
-| **Full Name** | [Write your full name here] |
-| **Student ID** | [Write your student ID here] |
-| **University Email** | [yourid]@std.psau.edu.sa |
-| **GitHub Username** | [your-github-username] |
-| **Repository Link** | [Paste your repository link here] |
+| **Full Name** | [Ali Faiz Alanzi] |
+| **Student ID** | [446050238] |
+| **University Email** | [446050238]@std.psau.edu.sa |
+| **GitHub Username** | [your-github-AliFaiz1236] |
+| **Repository Link** | [ |https://github.com/AliFaiz1236/OS-Assignment1-Ali-Faiz ]
  
 ---
 
@@ -109,15 +109,11 @@
 
 ## Example Entry (do not copy it, write your own)
 
-### Entry 1 - [September 22, 2026, 2:30 PM]
-**What I did**: Forked the repository and set up my student ID
-
-**Details**:
-- Created GitHub account with university email
-- Forked the starter repository and renamed it
-- Changed student ID on line 150 to my actual ID (441234567)
-- Compiled and ran the program successfully
-- Committed and pushed: `Set my student ID: 441234567`
+### Entry 1 - [Oct 7, 2026, 7 PM]
+•• What I did: Project setup and student ID configuration.
+• Details: Forked the repository, set my student ID (446050238) in SchedulerSimulation.java, and read the README.
+• Challenges: Setting up the workspace in VS Code.
+• Solution: Configured project folders correctly.
 
 **Challenges**: Had to install JDK first because `javac` wasn't recognized
 
@@ -129,68 +125,48 @@
 
 ## Your Development Log
 
-### Entry 1 - [Date and Time]
-**What I did**:
-
-**Details**:
-
-**Challenges**:
-
-**Solution**:
-
-**Time spent**:
+### Entry 1 - [Oct 7 , 7pm ]
+• What I did: Project setup and student ID configuration.
+• Details: Forked the repository, set my student ID (446050238) in SchedulerSimulation.java, and read the README.
+• Challenges: Setting up the workspace in VS Code.
+• Solution: Configured project folders correctly.
+**Time spent**: 2  hours
 
 ---
 
-### Entry 2 - [Date and Time]
-**What I did**:
-
-**Details**:
-
-**Challenges**:
-
-**Solution**:
-
-**Time spent**:
+### Entry 2 - [Oct8 , 7 pm]
+• What I did: Analyzed queue structures and process scheduling.
+• Details: Reviewed how threads and processes interact in the ready queue.
+• Challenges: Understanding preemptive thread states.
+• Solution: Traced code flow with test prints.
+• Time spent: 2.5 hours.
 
 ---
 
-### Entry 3 - [Date and Time]
-**What I did**:
+### Entry 3 - [Oct 9 , 5 pm ]
 
-**Details**:
+• What I did: Implemented Feature 1 (Process Priority).
+• Details: Updated queue sorting logic based on priority and arrival time.
+• Challenges: Handling priority tie-breakers.
+• Solution: Added secondary sorting by arrival timestamp.
+• Time spent: 3.5 hours.
+---
 
-**Challenges**:
-
-**Solution**:
-
-**Time spent**:
+### Entry 4 - [Oct 10 , 3 pm]
+• What I data / did: Implemented Feature 2 (Context Switch Counter).
+• Details: Added counters and logging for thread context switches.
+• Challenges: Differentiating quantum expiration from normal exits.
+• Solution: Added boundary checks during execution.
+• Time spent: 3 hours.
 
 ---
 
-### Entry 4 - [Date and Time]
-**What I did**:
-
-**Details**:
-
-**Challenges**:
-
-**Solution**:
-
-**Time spent**:
-
----
-
-### Entry 5 - [Date and Time]
-**What I did**:
-
-**Details**:
-
-**Challenges**:
-
-**Solution**:
-
-**Time spent**:
+### Entry 5 - [Oct 10 , 6 pm]
+What I did: Implemented Feature 3 (Waiting Time Tracking).
+• Details: Calculated dynamic waiting times and formatted the summary table.
+• Challenges: Console column alignment.
+• Solution: Used Java printf formatting.
+• Time spent: 3 hours.
 
 ---
 
@@ -237,7 +213,8 @@
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+[Thread vs Process
+A process represents an independent execution environment with its own isolated memory space, whereas a thread is a smaller lightweight unit of execution that exists within a process and shares its memory heap and resources. We used Java threads in this assignment instead of separate system processes because threads have significantly lower creation overhead and allow fast, efficient communication through shared memory structures. Specifically, in SchedulerSimulation.java, we establish this by calling new Thread(process) inside the addProcessToQueue() method, where multiple simulated processes run concurrently as distinct threads under the same Java application process. This design enables lightweight context switching and shared queue management without heavy inter-process communication overhead..]
 
 ## Question 2: What was the most challenging part of this assignment?
 
@@ -245,7 +222,11 @@
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+[Ready Queue Behavior
+In Round-Robin scheduling, when a process exhausts its allocated time quantum before finishing its total burst time, it is interrupted and re-queued at the back of the ready queue to await its next turn. For example, in my program output, process P3 had a large burst time and was repeatedly added back to the ready queue multiple times (specifically 3 times) before its remaining burst reached zero. Re-queueing is crucial for fairness because it prevents long-running processes from monopolizing the CPU and ensures that all other processes get equal, predictable shares of processor time.
+Example from my output:
+[Timestamp: 145ms] Process P3 exceeded time quantum, re-added to ready queue. Current queue size: 2
+Explanation of example: This snippet illustrates that P3 utilized its full time quantum slice, was paused by the scheduler, and safely pushed back to the tail of the ready queue so other waiting processes could execute.]
 
 ## Question 3: How did you overcome the challenges you faced?
 
@@ -253,7 +234,12 @@
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+[Thread Lifecycle
+1. New: A process is in the New state immediately after instantiation when new Thread(process) is invoked inside addProcessToQueue() before it starts execution.
+2. Runnable: P1 enters the Runnable state once thread.start() is called by the scheduler loop, making it eligible for CPU scheduling and queue allocation.
+3. Running: P1 enters the Running state when the scheduler selects it from the ready queue and its run() method actively executes on the CPU core.
+4. Waiting: P1 enters the Waiting state when it executes Thread.sleep() to simulate I/O operations or when the main thread invokes thread.join() to wait for thread completion.
+5. Terminated: P1 reaches the Terminated state after its execution logic finishes completely and its run() method exits.]
 
 ## Question 4: How can you apply multithreading concepts in real-world applications?
 
@@ -261,7 +247,13 @@
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+[Real-World Applications
+• Example 1 (operating-system level): CPU Scheduling in Desktop Operating Systems (Windows/Linux)
+• Description: The operating system kernel manages all active applications by allocating slices of CPU time using priority-based Round-Robin algorithms.
+• Why Round-Robin works well here: It guarantees fairness and high responsiveness, ensuring no single background application locks up the entire system processor.
+• Example 2: Multi-player Game Server Tick Management
+• Description: A multiplayer game server processes player actions and game world updates sequentially in tight iterative rounds (ticks).
+• Why Round-Robin works well here: It maintains absolute predictability and fairness among all connected clients so that network packet processing is distributed evenly without noticeable lag spikes.]
 
 ### Optional: What would you like to learn more about?
 
@@ -293,7 +285,8 @@
 
 **Your Answer:** *(3-5 sentences)*
 
-[Write your answer here.]
+[Thread vs Process
+A process represents an independent execution environment with its own isolated memory space, whereas a thread is a smaller lightweight unit of execution that exists within a process and shares its memory heap and resources. We used Java threads in this assignment instead of separate system processes because threads have significantly lower creation overhead and allow fast, efficient communication through shared memory structures. Specifically, in SchedulerSimulation.java, we establish this by calling new Thread(process) inside the addProcessToQueue() method, where multiple simulated processes run concurrently as distinct threads under the same Java application process. This design enables lightweight context switching and shared queue management without heavy inter-process communication overhead.]
 
 ## Question 2: Ready Queue Behavior
 
@@ -305,9 +298,11 @@
 
 **Your Answer:** *(3-5 sentences)*
 
-[Write your answer here.]
+[Ready Queue Behavior
+In Round-Robin scheduling, when a process exhausts its allocated time quantum before finishing its total burst time, it is interrupted and re-queued at the back of the ready queue to await its next turn. For example, in my program output, process P3 had a large burst time and was repeatedly added back to the ready queue multiple times (specifically 3 times) before its remaining burst reached zero. Re-queueing is crucial for fairness because it prevents long-running processes from monopolizing the CPU and ensures that all other processes get equal, predictable shares of processor time.]
 
-Example from my output:
+Example from my output: [Timestamp: 145ms] Process P3 exceeded time quantum, re-added to ready queue. Current queue size: 2
+Explanation of example: This snippet illustrates that P3 utilized its full time quantum slice, was paused by the scheduler, and safely pushed back to the tail of the ready queue so other waiting processes could execute.
 ```
 [Paste a relevant snippet from your program output here showing a process being re-queued]
 ```
@@ -321,17 +316,13 @@ Example from my output:
 
 > 💡 **TIP:** Follow P1 through the code: created in `addProcessToQueue()`, started in the scheduler loop, sleeping inside `run()`, and the main thread waiting on `join()`. Remember that **the main thread waits** on `join()`, while **P1's thread sleeps** in `Thread.sleep()`. Be clear about which thread is in which state.
 
-**Your Answer:** *(3-5 sentences overall; one short explanation per state)*
-
-1. **New**: [When is P1 in the New state?]
-
-2. **Runnable**: [When does P1 become Runnable?]
-
-3. **Running**: [When is P1 Running?]
-
-4. **Waiting**: [When and why would a thread be Waiting?]
-
-5. **Terminated**: [When is P1 Terminated?]
+**Your Answer:** *(3-5 sentences overall; one short explanation per state )
+Thread Lifecycle
+1. New: A process is in the New state immediately after instantiation when new Thread(process) is invoked inside addProcessToQueue() before it starts execution.
+2. Runnable: P1 enters the Runnable state once thread.start() is called by the scheduler loop, making it eligible for CPU scheduling and queue allocation.
+3. Running: P1 enters the Running state when the scheduler selects it from the ready queue and its run() method actively executes on the CPU core.
+4. Waiting: P1 enters the Waiting state when it executes Thread.sleep() to simulate I/O operations or when the main thread invokes thread.join() to wait for thread completion.
+5. Terminated: P1 reaches the Terminated state after its execution logic finishes completely and its run() method exits.
 
 ## Question 4: Real-World Applications
 
@@ -341,18 +332,13 @@ Example from my output:
 
 **Your Answer:** *(3-5 sentences per example)*
 
-### Example 1 (operating-system level): [Name of scenario]
-
-**Description**:
-[Describe the real-world scenario.]
-
-**Why Round-Robin works well here**:
-[Fairness, responsiveness, predictability?]
-
-### Example 2: [Name of application/scenario]
-
-**Description**:
-[Describe the real-world scenario or application.]
+Real-World Applications
+• Example 1 (operating-system level): CPU Scheduling in Desktop Operating Systems (Windows/Linux)
+• Description: The operating system kernel manages all active applications by allocating slices of CPU time using priority-based Round-Robin algorithms.
+• Why Round-Robin works well here: It guarantees fairness and high responsiveness, ensuring no single background application locks up the entire system processor.
+• Example 2: Multi-player Game Server Tick Management
+• Description: A multiplayer game server processes player actions and game world updates sequentially in tight iterative rounds (ticks).
+• Why Round-Robin works well here: It maintains absolute predictability and fairness among all connected clients so that network packet processing is distributed evenly without noticeable lag spikes.
 
 **Why Round-Robin works well here**:
 [Fairness, responsiveness, predictability?]
