@@ -82,7 +82,7 @@
 | 4 | Feature 3: Waiting time | `Feature 3: Added waiting time tracking and summary table` |
 | 5 | Development log entries | `Docs: Added development log entries 1-3` |
 | 6 | Reflection and answers | `Docs: Completed reflection and technical answers` |
-| 7 | Video link | `Docs: Added demo video link` |
+| 7 | Video link | `https://youtu.be/d8kcIOm5dG8` |
 
 **Rules:**
 - ✅ **One commit per feature.** Do not put all three features in one commit.
